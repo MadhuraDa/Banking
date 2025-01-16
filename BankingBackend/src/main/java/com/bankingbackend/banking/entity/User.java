@@ -2,6 +2,8 @@ package com.bankingbackend.banking.entity;
 
 import org.hibernate.annotations.ForeignKey;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -55,6 +57,7 @@ public class User {
 
 	@JoinColumn(name = "role_id")
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 	private Role role;
 	
 	
